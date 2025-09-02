@@ -1,0 +1,180 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageId>Zwemvest.MudScheduler</PackageId>
+        <Authors>Rik Oostveen, Dan Heron</Authors>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <Copyright>Copyright 2025 Rik Oostveen</Copyright>
+        <PackageTags>Scheduler, Blazor, MudBlazor, Components, Blazor Components, Blazor Library</PackageTags>
+        <Description>A simple but powerful scheduler component for MudBlazor - built upon Dan Heron's excellent MudScheduler.</Description>
+        <PackageProjectUrl>https://zwemvest.github.io/Zwemvest.MudScheduler</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/zwemvest/Zwemvest.MudScheduler</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <IsTrimmable>true</IsTrimmable>
+        <TrimMode>link</TrimMode>
+        <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+        <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <SupportedPlatform Include="browser" />
+    </ItemGroup>
+
+    <Target Name="ShouldCleanGeneratedFiles" BeforeTargets="BeforeRebuild">
+        <PropertyGroup>
+            <CleanGeneratedFiles>false</CleanGeneratedFiles>
+        </PropertyGroup>
+    </Target>
+
+    <Target Name="CleanGeneratedFiles" BeforeTargets="Clean" Condition="'$(CleanGeneratedFiles)' != 'false'">
+        <ItemGroup>
+            <FilesToClean Include="./wwwroot/Zwemvest.MudScheduler.min.css" />
+        </ItemGroup>
+        <Delete Files="@(FilesToClean)" />
+    </Target>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net9.0' ">
+        <PackageReference Include="Microsoft.AspNetCore.Components" Version="9.0.8" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.8" />
+        <PackageReference Include="Microsoft.Extensions.Localization" Version="9.0.8" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Resources\SchedulerView.resx" />
+        <EmbeddedResource Update="Resources\SchedulerView.de.resx">
+            <DependentUpon>SchedulerViewClass.resx</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.cs.resx">
+            <LastGenOutput>SchedulerView.cs.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.bg.resx">
+            <LastGenOutput>SchedulerView.bg.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.da.resx">
+            <LastGenOutput>SchedulerView.da.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.nl.resx">
+            <LastGenOutput>SchedulerView.nl.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.et.resx">
+            <LastGenOutput>SchedulerView.et.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.fi.resx">
+            <LastGenOutput>SchedulerView.fi.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.fr.resx">
+            <LastGenOutput>SchedulerView.fr.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.el.resx">
+            <LastGenOutput>SchedulerView.el.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.hu.resx">
+            <LastGenOutput>SchedulerView.hu.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.id.resx">
+            <LastGenOutput>SchedulerView.id.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.zh.resx">
+            <LastGenOutput>SchedulerView.zh.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.it.resx">
+            <LastGenOutput>SchedulerView.it.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.ja.resx">
+            <LastGenOutput>SchedulerView.ja.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.ko.resx">
+            <LastGenOutput>SchedulerView.ko.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.lv.resx">
+            <LastGenOutput>SchedulerView.lv.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.lt.resx">
+            <LastGenOutput>SchedulerView.lt.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.nb.resx">
+            <LastGenOutput>SchedulerView.nb.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.pl.resx">
+            <LastGenOutput>SchedulerView.pl.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.pt.resx">
+            <LastGenOutput>SchedulerView.pt.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.ro.resx">
+            <LastGenOutput>SchedulerView.ro.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.ru.resx">
+            <LastGenOutput>SchedulerView.ru.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.sk.resx">
+            <LastGenOutput>SchedulerView.sk.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.sl.resx">
+            <LastGenOutput>SchedulerView.sl.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.es.resx">
+            <LastGenOutput>SchedulerView.es.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.sv.resx">
+            <LastGenOutput>SchedulerView.sv.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.tr.resx">
+            <LastGenOutput>SchedulerView.tr.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.uk.resx">
+            <LastGenOutput>SchedulerView.uk.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\SchedulerView.hr.resx">
+            <LastGenOutput>SchedulerView.hr.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Heron.MudCalendar" Version="3.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.8" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.8" PrivateAssets="all" />
+        <PackageReference Include="MudBlazor" Version="8.12.0" />
+    </ItemGroup>
+
+    
+    <ItemGroup>
+      <Folder Include="Resources\" />
+    </ItemGroup>
+
+    
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Pages\Counter.razor" />
+      <UpToDateCheckInput Remove="Pages\Home.razor" />
+      <UpToDateCheckInput Remove="Pages\Weather.razor" />
+    </ItemGroup>
+
+    
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Properties\launchSettings.json" />
+    </ItemGroup>
+
+</Project>
+
+
